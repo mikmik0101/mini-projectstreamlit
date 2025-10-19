@@ -1,11 +1,33 @@
 import streamlit as st
 import random
+from datetime import datetime
+import os
 
 # Initialize session state
 if 'user_name' not in st.session_state:
     st.session_state.user_name = ""
 if 'current_game' not in st.session_state:
     st.session_state.current_game = "welcome"
+
+def save_visitor(name):
+    """Save visitor name to file"""
+    visitors_file = "visitors.txt"
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    with open(visitors_file, "a") as f:
+        f.write(f"{timestamp} - {name}\n")
+
+def load_visitors():
+    """Load visitor names from file"""
+    visitors_file = "visitors.txt"
+    
+    if not os.path.exists(visitors_file):
+        return []
+    
+    with open(visitors_file, "r") as f:
+        lines = f.readlines()
+    
+    return [line.strip() for line in lines if line.strip()]
 
 def welcome_screen():
     """Display welcome screen and get user name"""
@@ -16,6 +38,7 @@ def welcome_screen():
         if st.button("Let's Start!", type="primary"):
             if name.strip():
                 st.session_state.user_name = name.strip()
+                save_visitor(name.strip())
                 st.rerun()
             else:
                 st.error("Please enter your name to continue!")
@@ -40,6 +63,18 @@ def welcome_screen():
             if st.button("✂️ Jackempoy (Rock-Paper-Scissors)", use_container_width=True):
                 st.session_state.current_game = "jackempoy"
                 st.rerun()
+        
+        st.write("---")
+        
+        with st.expander("👥 See who visited this app"):
+            visitors = load_visitors()
+            if visitors:
+                st.write(f"**Total Visitors: {len(visitors)}**")
+                st.write("")
+                for visitor in reversed(visitors[-20:]):
+                    st.text(visitor)
+            else:
+                st.info("No visitors yet!")
 
 def age_checker():
     """Age checker mini-game"""
