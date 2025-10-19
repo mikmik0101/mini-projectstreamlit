@@ -63,18 +63,6 @@ def welcome_screen():
             if st.button("✂️ Jackempoy (Rock-Paper-Scissors)", use_container_width=True):
                 st.session_state.current_game = "jackempoy"
                 st.rerun()
-        
-        st.write("---")
-        
-        with st.expander("👥 See who visited this app"):
-            visitors = load_visitors()
-            if visitors:
-                st.write(f"**Total Visitors: {len(visitors)}**")
-                st.write("")
-                for visitor in reversed(visitors[-20:]):
-                    st.text(visitor)
-            else:
-                st.info("No visitors yet!")
 
 def age_checker():
     """Age checker mini-game"""
