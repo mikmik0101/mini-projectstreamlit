@@ -20,7 +20,7 @@ def welcome_screen():
             else:
                 st.error("Please enter your name to continue!")
     else:
-        st.success(f"Hiiiii, {st.session_state.user_name}! 🌟 I'm so happy to have you here. It's always a pleasure to meet someone new—get comfy, take your time, and enjoy the experience.")
+        st.success(f"Hiiiii, {st.session_state.user_name}! 🌟 I'm so happy to have you here. It's always a pleasure to meet someone like you, take your time, and enjoy the experience.")
         
         st.subheader("What do you want to try? Pick a game:")
         
@@ -198,7 +198,7 @@ def play_game(user_choice):
 def main():
     """Main application function"""
     st.set_page_config(
-        page_title="Mini Games Collection",
+        page_title="Mini Project",
         page_icon="🎮",
         layout="centered"
     )
@@ -215,7 +215,7 @@ def main():
     
     # Add footer
     st.write("---")
-    st.caption("Made with ❤️ using Streamlit")
+    st.caption("Made with ❤️ by Mickael")
 
 if __name__ == "__main__":
     main()
