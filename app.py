@@ -31,7 +31,7 @@ def load_visitors():
 
 def welcome_screen():
     """Display welcome screen and get user name"""
-    st.title("🌟 Welcome to Mini Games!")
+    st.title("🌟 Welcome to my mini Projects!")
     
     if not st.session_state.user_name:
         name = st.text_input("Enter your name:", key="name_input")
@@ -211,9 +211,9 @@ def play_game(user_choice):
         st.write(f"**You:** {choices[user_choice]}")
     
     with col2:
-        st.write(f"**Computer:** {choices[computer_choice]}")
+        st.write(f"**Me:** {choices[computer_choice]}")
     
-    st.error("Aww you lose, better luck next time! 😅")
+    st.error("Aww you lose, better luck next time! ")
     
     if st.button("Play Again"):
         st.rerun()
