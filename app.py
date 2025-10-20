@@ -31,7 +31,7 @@ def load_visitors():
 
 def welcome_screen():
     """Display welcome screen and get user name"""
-    st.title("( ͡~ ͜ʖ ͡°) Welcome to my mini Projects!")
+    st.title("🐭ྀིྀི Welcome to my micky Projects!")
     
     if not st.session_state.user_name:
         name = st.text_input("Enter your name:", key="name_input")
@@ -43,11 +43,12 @@ def welcome_screen():
             else:
                 st.error("Please enter your name to continue!")
     else:
-        st.success(f"Hiiiii, {st.session_state.user_name}! (◕ ‿ ◕ ✿) I'm so happy to have you here. It's always a pleasure to meet someone like you, take your time, and enjoy the experience hihihhi♥‿♥")
+        st.success(f"Hiiiii, {st.session_state.user_name}!!🎀 I'm sooo unbelievably happy you're here!! (｡> ‿ <｡) ♡ You just made everything 100x more sparkly ✧*。Please take your time, get comfy, and enjoy every little moment~ You're precious and I'm cheering for you always!! ꒰⑅ᵕ༚ᵕ꒱˖♡ Hihihi~ virtual hugs and happy vibes!! 🌸💞")
+
         
         st.subheader("What do you want to try? Pick a game:")
         
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(5)
         
         with col1:
             if st.button("🎂 Age Checker", use_container_width=True):
@@ -60,13 +61,18 @@ def welcome_screen():
                 st.rerun()
         
         with col3:
-            if st.button("✂️ Jackempoy (Rock-Paper-Scissors)", use_container_width=True):
+            if st.button("✂️ Jackempoy", use_container_width=True):
                 st.session_state.current_game = "jackempoy"
                 st.rerun()
         
         with col4:
             if st.button("🔢 Calculator", use_container_width=True):
                 st.session_state.current_game = "calculator"
+                st.rerun()
+        
+        with col5:
+            if st.button("💖 About Me", use_container_width=True):
+                st.session_state.current_game = "about_me"
                 st.rerun()
 
 def age_checker():
@@ -163,7 +169,7 @@ def tusoktusok():
         elif pera == total:
             st.success("Thank you for buying! You have no change hehe")
         else:
-            st.error("KULANG PERA MO, LUMAYAS KA DITO!!! /╲/( ͠° ͟ʖ ͡°)/\╱")
+            st.error("KULANG PERA MO, LUMAYAS KA DITO!!!😡")
 
 def calculator():
     """Basic calculator mini-game"""
@@ -197,6 +203,47 @@ def calculator():
             st.success(f"The quotient of {num2} ÷ {num1} is: **{round(num2 / num1, 2)}**")
         else:
             st.error("Cannot divide by zero!")
+
+def about_me():
+    """About Me section"""
+    st.title("💖 ABOUT ME")
+    
+    # Back button
+    if st.button("← Back to Menu"):
+        st.session_state.current_game = "welcome"
+        st.rerun()
+    
+    st.write("---")
+    
+    st.write(f"HIII POOOO {st.session_state.user_name}, my name is **Mickael!** 🌟")
+    
+    st.write("")
+    st.info("I'm **16 years old** and currently a ✨**1st year BSIT student**✨")
+    
+    st.write("")
+    st.write("I'm passionate about tech, learning new things, and meeting awesome people like youuu~ ♡")
+    
+    st.write("When I'm not busy studying or debugging (send help lol 🧠💥), I love hanging out, n vibing with music 🎶")
+    
+    st.write("")
+    st.success("Let's be frens!! ₍ᐢ. .ᐢ₎♡")
+    
+    st.write("---")
+    st.subheader("📱 Connect with Me:")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.write("**Instagram:**")
+        st.write("mick_e_maws")
+    
+    with col2:
+        st.write("**Facebook:**")
+        st.write("Mickael Cullamat")
+    
+    with col3:
+        st.write("**TikTok:**")
+        st.write("mick_emawsss")
 
 def jackempoy():
     """Rock-paper-scissors mini-game"""
@@ -275,10 +322,12 @@ def main():
         jackempoy()
     elif st.session_state.current_game == "calculator":
         calculator()
+    elif st.session_state.current_game == "about_me":
+        about_me()
     
     # Add footer
     st.write("---")
-    st.caption("Made with ❤️ by Mickael")
+    st.caption("Made with 🧀 by Mickael")
 
 if __name__ == "__main__":
     main()
