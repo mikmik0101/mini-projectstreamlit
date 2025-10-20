@@ -31,7 +31,7 @@ def load_visitors():
 
 def welcome_screen():
     """Display welcome screen and get user name"""
-    st.title("🌟 Welcome to my mini Projects!")
+    st.title("( ͡~ ͜ʖ ͡°) Welcome to my mini Projects!")
     
     if not st.session_state.user_name:
         name = st.text_input("Enter your name:", key="name_input")
@@ -43,11 +43,11 @@ def welcome_screen():
             else:
                 st.error("Please enter your name to continue!")
     else:
-        st.success(f"Hiiiii, {st.session_state.user_name}! 🌟 I'm so happy to have you here. It's always a pleasure to meet someone like you, take your time, and enjoy the experience.")
+        st.success(f"Hiiiii, {st.session_state.user_name}! (◕ ‿ ◕ ✿) I'm so happy to have you here. It's always a pleasure to meet someone like you, take your time, and enjoy the experience hihihhi♥‿♥")
         
         st.subheader("What do you want to try? Pick a game:")
         
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
         
         with col1:
             if st.button("🎂 Age Checker", use_container_width=True):
@@ -62,6 +62,11 @@ def welcome_screen():
         with col3:
             if st.button("✂️ Jackempoy (Rock-Paper-Scissors)", use_container_width=True):
                 st.session_state.current_game = "jackempoy"
+                st.rerun()
+        
+        with col4:
+            if st.button("🔢 Calculator", use_container_width=True):
+                st.session_state.current_game = "calculator"
                 st.rerun()
 
 def age_checker():
@@ -158,7 +163,40 @@ def tusoktusok():
         elif pera == total:
             st.success("Thank you for buying! You have no change hehe")
         else:
-            st.error("KULANG PERA MO, LUMAYAS KA DITO!!!")
+            st.error("KULANG PERA MO, LUMAYAS KA DITO!!! /╲/( ͠° ͟ʖ ͡°)/\╱")
+
+def calculator():
+    """Basic calculator mini-game"""
+    st.title("🔢 Ultimato Basic Calculator")
+    st.write(f"Hello {st.session_state.user_name}! Let's do some math.")
+    
+    # Back button
+    if st.button("← Back to Menu"):
+        st.session_state.current_game = "welcome"
+        st.rerun()
+    
+    st.write("---")
+    
+    num1 = st.number_input("Enter first number:", value=0.0, step=0.01, format="%.2f")
+    num2 = st.number_input("Enter 2nd number:", value=0.0, step=0.01, format="%.2f")
+    
+    if st.button("Calculate", type="primary"):
+        st.write("---")
+        st.subheader("Results:")
+        
+        st.success(f"The sum of 2 numbers is: **{round(num1 + num2, 2)}**")
+        st.info(f"The difference of 2 numbers is: **{round(num1 - num2, 2)}**")
+        st.success(f"The product of 2 numbers is: **{round(num1 * num2, 2)}**")
+        
+        if num2 != 0:
+            st.info(f"The quotient of {num1} ÷ {num2} is: **{round(num1 / num2, 2)}**")
+        else:
+            st.error("Cannot divide by zero!")
+        
+        if num1 != 0:
+            st.success(f"The quotient of {num2} ÷ {num1} is: **{round(num2 / num1, 2)}**")
+        else:
+            st.error("Cannot divide by zero!")
 
 def jackempoy():
     """Rock-paper-scissors mini-game"""
@@ -235,6 +273,8 @@ def main():
         tusoktusok()
     elif st.session_state.current_game == "jackempoy":
         jackempoy()
+    elif st.session_state.current_game == "calculator":
+        calculator()
     
     # Add footer
     st.write("---")
