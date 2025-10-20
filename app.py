@@ -43,7 +43,7 @@ def welcome_screen():
             else:
                 st.error("Please enter your name to continue!")
     else:
-        st.success(f"Hiiiii, {st.session_state.user_name}!!🎀 I'm sooo unbelievably happy you're here!! (｡> ‿ <｡) ♡ You just made everything 100x more sparkly ✧*。Please take your time, get comfy, and enjoy every little moment~ You're precious and I'm cheering for you always!! ꒰⑅ᵕ༚ᵕ꒱˖♡ Hihihi~ virtual hugs and happy vibes!! 🌸💞")
+        st.success(f"Hiiiii, {st.session_state.user_name}!!🎀 I'm sooo unbelievably happy you're here!! (｡> ‿ <｡) ♡ You just made everything 100x more sparkly ✧*。Please take your time, get comfy, and enjoy every little moment~ You're precious and I'm cheering for you always!! ꒰⑅ᵕ༚ᵕ꒱˖♡ Hihihi~ virtual hugs!! 🌸")
 
         
         st.subheader("What do you want to try? Pick a game:")
@@ -327,7 +327,7 @@ def main():
     
     # Add footer
     st.write("---")
-    st.caption("Made with 🧀 by Mickael")
+    st.caption("Made with 🧀 by Mickael hshs")
 
 if __name__ == "__main__":
     main()

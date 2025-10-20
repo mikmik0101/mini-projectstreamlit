@@ -52,6 +52,8 @@ elif user==2:
     print("Thank you for buying, You have no change hehe")
  else:
     print("KULANG PERA MO, LUMAYAS KA DITO!!!")
+
+
 elif user==3:
   print("numbers only(1 try only): [1]rock, [2]paper, [3]scissor")
   you=int(input("pick your number: "))
@@ -69,5 +71,26 @@ elif user==3:
     print("aww you lose, better luck next time")
   else:
     print("opps wala yan sa option")
+
+elif user==4:
+  print("Ultimato basic Calculator")
+  num1=float(input("enter first number: "))
+  num2=float(input("enter 2nd number: "))
+  print(f"the sum of 2 numbers is: {round(num1+num2, )}")
+  print(f"the difference of 2 numbers is: {round(num1-num2, 2)}")
+  print(f"the product of 2 numbers is: {round(num1*num2, 2)}")
+  print(f"the quotient of 2 numbers is: {round(num1/num2 and num2/num1,2)}")
+
+elif user==5:
+  print('ABOUT ME')
+  print(f"HIII POOOO{name}, my name is Mickael! I'm 16 years old and currently a ✨1st year BSIT student✨ \n"
+         "Im passionate about tech, learning new things, and meeting awesome people like youuu~ ♡ \n"
+    "When I’m not busy studying or debugging (send help lol 🧠💥), I love hanging out, n vibing with music🎶")
+  print("Let’s be frens!! ₍ᐢ. .ᐢ₎♡ \n|"
+ "Instagram: mick_e_maws \n"
+  "Facebook: Mickael Cullamat\n"
+  "TikTok:mick_emawsss")
+
+
 else:
  print("wala yan sa option tih")
